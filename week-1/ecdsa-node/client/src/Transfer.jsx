@@ -1,9 +1,11 @@
 import { useState } from "react";
 import server from "./server";
 
-function Transfer({ address, setBalance }) {
+function Transfer({ address, setBalance, hashedMsg, signature, setHashMsg, setSignature }) {
   const [sendAmount, setSendAmount] = useState("");
   const [recipient, setRecipient] = useState("");
+  const [recoveryBit, setRecoveryKey] = useState(signature?.[1] ?? '');
+  const [sign, setSign] = useState(signature?.[0] ?? '');
 
   const setValue = (setter) => (evt) => setter(evt.target.value);
 
@@ -17,6 +19,9 @@ function Transfer({ address, setBalance }) {
         sender: address,
         amount: parseInt(sendAmount),
         recipient,
+        recoveryBit,
+        sign,
+        hashedMsg,
       });
       setBalance(balance);
     } catch (ex) {
@@ -28,6 +33,31 @@ function Transfer({ address, setBalance }) {
     <form className="container transfer" onSubmit={transfer}>
       <h1>Send Transaction</h1>
 
+      {/* Add Signature, recovery bit and hashed message fields */}
+      <label>
+        Message hash
+        <input
+          defaultValue={hashedMsg}
+          placeholder="Generated info will be displayed here."
+          onChange={setValue(setHashMsg)}
+        ></input>
+      </label>
+      <label>
+        Recovery Bit
+        <input
+          defaultValue={recoveryBit}
+          placeholder="Generated info will be displayed here."
+          onChange={setValue(setRecoveryKey)}
+        ></input>
+      </label>
+      <label>
+        Signature
+        <input
+          defaultValue={sign}
+          placeholder="Generated info will be displayed here."
+          onChange={setValue(setSign)}
+        ></input>
+      </label>
       <label>
         Send Amount
         <input

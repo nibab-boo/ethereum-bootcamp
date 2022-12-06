@@ -19,7 +19,7 @@ function App() {
         setAddress={setAddress}
       />
       <Signature hashedMsg={hashedMsg} setHashMsg={setHashMsg} signature={signature} setSignature={setSignature} />
-      <Transfer setBalance={setBalance} address={address} hashedMsg={hashedMsg} signature={signature} />
+      <Transfer setBalance={setBalance} address={address} hashedMsg={hashedMsg} setHashMsg={setHashMsg} signature={signature} setSignature={setSignature} />
     </div>
   );
 }
