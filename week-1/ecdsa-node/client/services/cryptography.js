@@ -4,6 +4,7 @@ import {sign} from "ethereum-cryptography/secp256k1";
 
 const signMessage = async (message, privateKey) => {
   const hashedMsg = keccak256(utf8ToBytes(message));
+  // { recoverd: true } returns [Signature, RecoveryBit]
   const signInfo = await sign(hashedMsg, privateKey, { recovered: true });
   return { hashedMsg, signInfo };
 };

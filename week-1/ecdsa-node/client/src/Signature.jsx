@@ -66,4 +66,4 @@ const Signature = ({setHashMsg, hashedMsg, signature, setSignature}) => {
   );
 };
 
-export default memo(Signature);
+export default Signature;

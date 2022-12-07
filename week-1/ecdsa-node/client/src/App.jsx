@@ -3,12 +3,15 @@ import Transfer from "./Transfer";
 import "./App.scss";
 import { useState } from "react";
 import Signature from "./Signature";
+import { useEffect } from "react";
 
 function App() {
   const [balance, setBalance] = useState(0);
   const [address, setAddress] = useState("");
-  const [signature, setSignature] = useState("");
+  const [signature, setSignature] = useState(['', '']);
   const [hashedMsg, setHashMsg] = useState("");
+
+  useEffect(() => console.log("Signature from APP :---: ", signature), signature)
 
   return (
     <div className="app">

@@ -1,11 +1,25 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import server from "./server";
 
-function Transfer({ address, setBalance, hashedMsg, signature, setHashMsg, setSignature }) {
+function Transfer({
+  address,
+  setBalance,
+  hashedMsg,
+  signature,
+  setHashMsg,
+  setSignature,
+}) {
   const [sendAmount, setSendAmount] = useState("");
   const [recipient, setRecipient] = useState("");
-  const [recoveryBit, setRecoveryKey] = useState(signature?.[1] ?? '');
-  const [sign, setSign] = useState(signature?.[0] ?? '');
+  const [recoveryBit, setRecoveryKey] = useState("");
+  const [sign, setSign] = useState("");
+
+  useEffect(() => {
+    console.log("Signature :---: ", signature);
+    setRecoveryKey(signature?.[1] ?? "");
+    setSign(signature?.[0] ?? "");
+  }, signature);
 
   const setValue = (setter) => (evt) => setter(evt.target.value);
 
