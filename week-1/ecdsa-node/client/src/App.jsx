@@ -11,8 +11,6 @@ function App() {
   const [signature, setSignature] = useState(['', '']);
   const [hashedMsg, setHashMsg] = useState("");
 
-  useEffect(() => console.log("Signature from APP :---: ", signature), signature)
-
   return (
     <div className="app">
       <Wallet

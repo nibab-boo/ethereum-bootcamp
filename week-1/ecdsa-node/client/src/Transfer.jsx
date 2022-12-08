@@ -16,7 +16,6 @@ function Transfer({
   const [sign, setSign] = useState("");
 
   useEffect(() => {
-    console.log("Signature :---: ", signature);
     setRecoveryKey(signature?.[1] ?? "");
     setSign(signature?.[0] ?? "");
   }, signature);
@@ -39,6 +38,7 @@ function Transfer({
       });
       setBalance(balance);
     } catch (ex) {
+      console.log("error :---: ", ex);
       alert(ex.response.data.message);
     }
   }
