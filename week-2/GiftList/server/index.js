@@ -12,7 +12,7 @@ const MERKLE_ROOT = 'ddd59a2ffccddd60ff47993312821cd57cf30f7f14fb82937ebe2c4dc78
 
 app.post('/gift', (req, res) => {
   // grab the parameters from the front-end here
-  const {name, proof} = req.body;
+  const {name = "no name", proof} = req.body;
 
   // TODO: prove that a name is in the list 
   const isInTheList = verifyProof(proof, name, MERKLE_ROOT);
