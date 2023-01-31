@@ -1,5 +1,6 @@
 import { Alchemy, Network } from 'alchemy-sdk';
 import { useEffect, useState } from 'react';
+import OverViewBox from './components/OverViewBox';
 
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
   const [blockNumber, setBlockNumber] = useState();
 
   useEffect(() => {
+    console.log("I am here.");
     async function getBlockNumber() {
       setBlockNumber(await alchemy.core.getBlockNumber());
     }
@@ -30,7 +32,7 @@ function App() {
     getBlockNumber();
   });
 
-  return <div className="App">Block Number: {blockNumber}</div>;
+  return <OverViewBox blockNumber={blockNumber} />;
 }
 
 export default App;
