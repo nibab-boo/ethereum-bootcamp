@@ -30,7 +30,9 @@ function App() {
       <div className="container">
         <Router>
           <Switch>
-            <Route path="/">
+            {/* <Route path="/block/:hashId" exact>
+            </Route> */}
+            <Route path="/" exact>
               <Home />
             </Route>
           </Switch>
