@@ -1,0 +1,37 @@
+.search-box {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.search-box input[type="text"]:hover {
+  outline: none;
+  appearance: none;
+}
+.search-box input[type="text"]::focus {
+  outline: none;
+  border: none;
+  appearance: none;
+}
+.search-box input[type="text"] {
+  border: none;
+  padding: 12px 20px;
+  border-bottom: 2px solid black;
+  appearance: none;
+}
+
+.search-box input[type="submit"] {
+  padding: 12px 20px;
+  margin-left: 1rem;
+  background-color: aliceblue;
+  border: 1px solid black;
+}
+
+
+.search-option {
+  display: flex;
+  gap: .8rem;
+
+}
