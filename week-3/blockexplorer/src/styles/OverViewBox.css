@@ -1,0 +1,21 @@
+.overviewBox {
+  padding: 24px;
+  margin-top: 24px;
+  display: inline-flex;
+  border-radius: 16px;
+  border: 1px solid rgba(241, 243, 255, 0.57);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass {
+  padding: 24px;
+}
+
+.overviewBox .glass:not(:first-child) {
+  border-left: 3px solid rgba(241, 243, 255, 0.57); ;
+}
+
+.subInHeader {
+  font-size: xx-large;
+  color: rgb(74 80 92 / 93%);
+}
