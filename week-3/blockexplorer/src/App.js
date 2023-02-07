@@ -4,6 +4,7 @@ import { createContext, useContext } from "react";
 
 import "./App.css";
 import Home from "./components/Home";
+import BlockPage from "./components/BlockPage";
 
 // Refer to the README doc for more information about using API
 // keys in client-side code. You should never do this in production
@@ -30,8 +31,9 @@ function App() {
       <div className="container">
         <Router>
           <Switch>
-            {/* <Route path="/block/:hashId" exact>
-            </Route> */}
+            <Route path="/block/:blockHash" exact>
+              <BlockPage />
+            </Route>
             <Route path="/" exact>
               <Home />
             </Route>

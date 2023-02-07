@@ -35,7 +35,7 @@ const Home = () => {
 
   const changeBase = (num) => {
     setBaseBlock(baseBlock + num);
-    fetchBlock(baseBlock + num);
+    // fetchBlock(baseBlock + num);
   };
 
   return (
