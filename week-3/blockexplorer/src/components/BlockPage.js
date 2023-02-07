@@ -13,6 +13,7 @@ const BlockPage = () => {
   useEffect(() => {
     (async () => {
       try {
+        // Could have used:-- getBlockWithTransactions => to get full transaction details.
         setBlockInfo(await alchemyCore.getBlock(blockHash));
         setError(false);
       } catch (error) {
@@ -24,10 +25,8 @@ const BlockPage = () => {
   if (error) return <div>Error Found</div>;
 
   if (!blockInfo?.hash) return <div>Block Not Found</div>;
-  console.log("Block info :---: ", blockInfo);
 
   return (
-    // <div>{JSON.stringify(blockInfo)}</div>
     <div>
       <h3>
         Block: <strong className="subInHeader">{blockInfo.number}</strong>
