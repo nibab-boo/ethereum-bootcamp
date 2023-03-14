@@ -35,5 +35,33 @@ describe("TestModifyVariable", async function () {
 
     const newX = await contract.x();
     assert.equal(newX.toNumber(), 20);
-  })
+  });
+
+  it("'modified' should be to 'false'", async function () {
+
+    const ModifyVariable = await ethers.getContractFactory("ModifyVariable");
+
+    const contract = await ModifyVariable.deploy(10);
+
+    await contract.deployed();
+
+    const modifiedState = await contract.modified();
+
+    assert.equal(modifiedState, false);    
+  });
+
+  it("'modified' should be change to 'true'", async function () {
+
+    const ModifyVariable = await ethers.getContractFactory("ModifyVariable");
+
+    const contract = await ModifyVariable.deploy(10);
+
+    await contract.deployed();
+    
+    await contract.minus(5);
+    
+    const modifiedState = await contract.modified();
+
+    assert.equal(modifiedState, true);
+  });
 });
