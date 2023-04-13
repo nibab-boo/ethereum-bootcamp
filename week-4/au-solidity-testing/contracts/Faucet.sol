@@ -9,8 +9,8 @@ contract Faucet {
   }
 
   function withdraw(uint _amount) payable public {
-    require(_amount <= 100000000000000000, "Maximum of .1 ETH allowed for withdrawal");
-    (bool status, ) = payable(msg.sender).call{ value: _amount }("");
+    require(_amount <= 100000000000000000);
+    (bool status, ) = payable(msg.sender).call{ value: _amount }(""); 
     require(status, "Failed to send Ether");
   }
 
